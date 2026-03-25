@@ -275,24 +275,22 @@ show_interface_config() {
 # Función para mostrar menú
 show_menu() {
     clear
-    echo -e "${BLUE}╔════════════════════════════════════════╗${NC}" >&2
-    echo -e "${BLUE}║  GESTOR DE INTERFACES DE RED LINUX    ║${NC}" >&2
-    echo -e "${BLUE}╚════════════════════════════════════════╝${NC}" >&2
-    echo "" >&2
+    echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
+    echo -e "${BLUE}║  GESTOR DE INTERFACES DE RED LINUX    ║${NC}"
+    echo -e "${BLUE}╚════════════════════════════════════════╝${NC}"
+    echo ""
     if [ -n "$SELECTED_INTERFACE" ]; then
-        echo -e "Interfaz seleccionada: ${GREEN}$SELECTED_INTERFACE${NC}" >&2
-        echo "" >&2
+        echo -e "Interfaz seleccionada: ${GREEN}$SELECTED_INTERFACE${NC}"
+        echo ""
     fi
-    echo "1. Listar interfaces" >&2
-    echo "2. Seleccionar interfaz a configurar" >&2
-    echo "3. Limpiar IPs de la interfaz seleccionada" >&2
-    echo "4. Agregar o reemplazar IP en la interfaz" >&2
-    echo "5. Encender la interfaz si está apagada" >&2
-    echo "6. Mostrar configuración final de la interfaz" >&2
-    echo "7. Salir" >&2
-    echo "" >&2
-    read -p "Elige una opción (1-7): " option >&2
-    echo "$option"
+    echo "1. Listar interfaces"
+    echo "2. Seleccionar interfaz a configurar"
+    echo "3. Limpiar IPs de la interfaz seleccionada"
+    echo "4. Agregar o reemplazar IP en la interfaz"
+    echo "5. Encender la interfaz si está apagada"
+    echo "6. Mostrar configuración final de la interfaz"
+    echo "7. Salir"
+    echo ""
 }
 
 # Programa principal
@@ -305,9 +303,10 @@ main() {
     fi
     
     while true; do
-        option=$(show_menu)
+        show_menu
+        read -p "Elige una opción (1-7): " option
         
-        case $option in
+        case "$option" in
             1) list_interfaces ;;
             2) select_interface ;;
             3) flush_interface_ips ;;
