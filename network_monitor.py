@@ -11,7 +11,7 @@ from datetime import datetime
 from pathlib import Path
 
 # Configuración
-DEVICES_FILE = "/home/ubuntu/dispositivos.txt"
+DEVICES_FILE = "/home/ubuntu/lab1_cloud/dispositivos.txt"
 SSH_PORT = 22
 SSH_TIMEOUT = 10
 CONNECTION_TIMEOUT = 10
