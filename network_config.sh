@@ -304,7 +304,11 @@ main() {
     
     while true; do
         show_menu
-        read -p "Elige una opción (1-7): " option
+        read -r -p "Elige una opción (1-7): " option
+        # Limpiar espacios en blanco
+        option="${option// /}"
+        option="${option#"${option%%[![:space:]]*}"}"
+        option="${option%"${option##*[![:space:]]}"}"
         
         case "$option" in
             1) list_interfaces ;;
@@ -318,7 +322,7 @@ main() {
                 exit 0
                 ;;
             *)
-                echo -e "${RED}Opción inválida. Intenta nuevamente.${NC}"
+                echo -e "${RED}Opción inválida: '$option'. Intenta nuevamente.${NC}"
                 read -p "Presiona ENTER para continuar..."
                 ;;
         esac
