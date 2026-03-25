@@ -1,0 +1,8 @@
+# Archivo de configuración de dispositivos para network_monitor.py
+# Formato: nombre_servidor IP_administración
+# Comentarios comienzan con #
+
+server1 10.0.10.1
+server2 10.0.10.2
+server3 10.0.10.3
+server4 10.0.10.4
